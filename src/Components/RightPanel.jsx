@@ -1,8 +1,8 @@
-// src/components/RightPanel.js
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { jumpToQuestion , calculateScore} from '../redux/Slices/questionSlice';
 import { useNavigate } from 'react-router-dom';
+import WebcamCapture from './Webcam';
 
 const RightPanel = () => {
     const questions = useSelector((state) => state.questions.list);
@@ -45,6 +45,9 @@ const RightPanel = () => {
       }
   return (
     <div className="right-panel">
+      <div style={{height:'150px',width:'150px',backgroundColor:'white',padding:'5px',margin:'10px'}}>
+          <WebcamCapture />
+      </div>
      <div className="timer">
         <span>Time Remaining: {formatTime(examTime)}</span>
       </div>
